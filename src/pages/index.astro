@@ -1,0 +1,186 @@
+---
+import '../styles/global.css';
+
+const name    = "Your Name";
+const tagline = "Building things that feel right.";
+
+const links = [
+  { label: "GitHub",     href: "https://github.com/yourusername",          note: "github.com/yourusername" },
+  { label: "Twitter / X",href: "https://twitter.com/yourusername",          note: "@yourusername"           },
+  { label: "LinkedIn",   href: "https://linkedin.com/in/yourusername",      note: "linkedin.com/in/you"     },
+  { label: "Email",      href: "mailto:you@example.com",                    note: "you@example.com"         },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{name}</title>
+    <meta name="description" content={tagline} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen">
+
+    <!-- ────────────────── HERO ────────────────── -->
+    <section class="max-w-[620px] mx-auto px-6 pt-28 pb-24 md:pt-40 md:pb-32">
+
+      <p
+        class="hero-item font-mono text-xs tracking-[0.2em] uppercase mb-6"
+        style="color: var(--color-muted); animation-delay: 0s;"
+      >
+        &mdash;&thinsp;hello
+      </p>
+
+      <h1
+        class="hero-item font-mono font-bold leading-tight mb-5"
+        style="font-size: clamp(2.4rem, 6vw, 3.6rem); color: #ffffff; animation-delay: 0.12s;"
+      >
+        {name}
+      </h1>
+
+      <p
+        class="hero-item font-sans font-light text-lg leading-relaxed"
+        style="color: var(--color-muted); animation-delay: 0.22s;"
+      >
+        {tagline}
+      </p>
+
+    </section>
+
+    <!-- ─────────── thin rule ─────────── -->
+    <div class="max-w-[620px] mx-auto px-6">
+      <hr style="border: none; border-top: 1px solid var(--color-border);" />
+    </div>
+
+    <!-- ────────────────── ABOUT ────────────────── -->
+    <section class="max-w-[620px] mx-auto px-6 py-20">
+
+      <p class="sr font-mono text-[11px] tracking-[0.2em] uppercase mb-8"
+         style="color: var(--color-muted);">
+        About
+      </p>
+
+      <div class="space-y-5">
+        <p class="sr delay-1 font-sans text-base leading-[1.8]" style="color: #b0b0b0;">
+          I'm a developer interested in the space where design and engineering
+          overlap — the details that make something feel considered rather than
+          just functional.
+        </p>
+        <p class="sr delay-2 font-sans text-base leading-[1.8]" style="color: #b0b0b0;">
+          I work on products end-to-end, care deeply about craft, and believe
+          the best interfaces are the ones you don't have to think about.
+        </p>
+        <p class="sr delay-3 font-sans text-base leading-[1.8]" style="color: #b0b0b0;">
+          When I'm not building, I'm probably reading, walking, or thinking too
+          hard about font choices.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ─────────── thin rule ─────────── -->
+    <div class="max-w-[620px] mx-auto px-6">
+      <hr style="border: none; border-top: 1px solid var(--color-border);" />
+    </div>
+
+    <!-- ────────────────── LINKS ────────────────── -->
+    <section class="max-w-[620px] mx-auto px-6 py-20">
+
+      <p class="sr font-mono text-[11px] tracking-[0.2em] uppercase mb-8"
+         style="color: var(--color-muted);">
+        Links
+      </p>
+
+      <ul class="space-y-1">
+        {links.map((link, i) => (
+          <li class={`sr delay-${i + 1}`}>
+            <a
+              href={link.href}
+              target={link.href.startsWith('mailto') ? undefined : '_blank'}
+              rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+              class="link-row group flex items-center justify-between py-3 border-b"
+              style="border-color: var(--color-border); text-decoration: none;"
+            >
+              <span
+                class="font-sans text-sm font-medium transition-colors duration-200"
+                style="color: #888;"
+              >
+                {link.label}
+              </span>
+
+              <span class="flex items-center gap-4">
+                <span
+                  class="font-mono text-xs hidden sm:inline-block transition-colors duration-200"
+                  style="color: #333;"
+                >
+                  {link.note}
+                </span>
+                <span class="arrow font-mono text-xs" style="color: #444;">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+    </section>
+
+    <!-- ─────────── thin rule ─────────── -->
+    <div class="max-w-[620px] mx-auto px-6">
+      <hr style="border: none; border-top: 1px solid var(--color-border);" />
+    </div>
+
+    <!-- ────────────────── FOOTER ────────────────── -->
+    <footer class="max-w-[620px] mx-auto px-6 py-10">
+      <p class="font-mono text-[11px]" style="color: #2a2a2a;">
+        &copy; {new Date().getFullYear()} {name}
+      </p>
+    </footer>
+
+    <!-- ────────────────── SCROLL REVEAL ────────────────── -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.sr').forEach((el) => observer.observe(el));
+
+      // Hover color effect for link rows
+      document.querySelectorAll('.link-row').forEach((row) => {
+        const label = row.querySelector('span:first-child') as HTMLElement;
+        const note  = row.querySelector('.font-mono.hidden, .font-mono.inline-block') as HTMLElement;
+        const arrow = row.querySelector('.arrow') as HTMLElement;
+
+        row.addEventListener('mouseenter', () => {
+          if (label) label.style.color = '#e2e2e2';
+          if (note)  note.style.color  = '#555';
+          if (arrow) arrow.style.color = '#e2e2e2';
+        });
+        row.addEventListener('mouseleave', () => {
+          if (label) label.style.color = '#888';
+          if (note)  note.style.color  = '#333';
+          if (arrow) arrow.style.color = '#444';
+        });
+      });
+    </script>
+
+  </body>
+</html>
