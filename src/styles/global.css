@@ -53,6 +53,27 @@ body {
 .delay-3 { transition-delay: 0.21s; }
 .delay-4 { transition-delay: 0.28s; }
 
+/* ── nav links ── */
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease;
+}
+.nav-link:hover { color: var(--color-text); }
+
+/* ── footer links ── */
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-link:hover { color: var(--color-text); }
+
 /* ── link rows ── */
 .link-row {
   display: flex;

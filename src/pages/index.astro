@@ -1,12 +1,10 @@
 ---
 import '../styles/global.css';
 
-const name = "Alejandro Franco";
-
 const links = [
-  { label: "github",   href: "https://github.com/xtwothree"                  },
-  { label: "linkedin", href: "https://www.linkedin.com/in/4lejandrofranco/"   },
-  { label: "email",    href: "mailto:afrancojc@gmail.com"                     },
+  { label: "github",   href: "https://github.com/xtwothree"                },
+  { label: "linkedin", href: "https://www.linkedin.com/in/4lejandrofranco/" },
+  { label: "email",    href: "mailto:afrancojc@gmail.com"                   },
 ];
 ---
 
@@ -15,7 +13,7 @@ const links = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{name}</title>
+    <title>Alejandro Franco</title>
     <meta name="description" content="Personal site of Alejandro Franco." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
@@ -27,19 +25,19 @@ const links = [
     />
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen flex flex-col">
 
-    <div style="max-width:640px; padding: 0 1.5rem 0 clamp(1.5rem, 8vw, 7rem);">
+    <!-- ── nav ── -->
+    <nav class="hero-item w-full flex justify-center gap-8 pt-10 pb-2" style="animation-delay:0s;">
+      <a href="/projects" class="nav-link">projects</a>
+      <a href="/blog"     class="nav-link">blog</a>
+      <a href="/musings"  class="nav-link">musings</a>
+    </nav>
 
-      <!-- ── name ── -->
-      <header class="hero-item pt-14 md:pt-20 pb-12 md:pb-16" style="animation-delay:0s;">
-        <span style="font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:800;letter-spacing:-0.02em;color:var(--color-text);">
-          {name}
-        </span>
-      </header>
+    <!-- ── bio ── -->
+    <main style="max-width:640px;padding:0 1.5rem 0 clamp(1.5rem,8vw,7rem);flex:1;">
 
-      <!-- ── bio ── -->
-      <section class="pb-24 md:pb-32">
+      <section class="pt-16 md:pt-20 pb-24 md:pb-32">
 
         <p
           class="hero-item"
@@ -68,37 +66,39 @@ const links = [
 
       </section>
 
-      <!-- ── footer links ── -->
-      <footer class="sr pb-12">
-        <div style="display:flex;gap:1.6rem;margin-bottom:1rem;">
-          {links.map((link) => (
-            <a
-              href={link.href}
-              target={link.href.startsWith('mailto') ? undefined : '_blank'}
-              rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              style="font-family:var(--font-mono);font-size:0.7rem;color:var(--color-muted);text-decoration:none;transition:color 0.15s ease;"
-              onmouseover="this.style.color='#1a1a1a'"
-              onmouseout="this.style.color='var(--color-muted)'"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-        <p style="font-family:var(--font-mono);font-size:0.65rem;color:#ccc;">
-          site built with astro &amp; tailwind &middot; &copy; {new Date().getFullYear()}
-        </p>
-      </footer>
+    </main>
 
-    </div>
+    <!-- ── footer ── -->
+    <footer class="sr w-full flex flex-col items-center gap-3 pb-10 pt-4">
+
+      <div style="display:flex;gap:1.75rem;">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith('mailto') ? undefined : '_blank'}
+            rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+            class="footer-link"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <p style="font-family:var(--font-mono);font-size:0.62rem;color:#c0c0c0;">
+        site built with astro &amp; tailwind &middot; &copy; {new Date().getFullYear()}
+      </p>
+
+      <p style="font-family:var(--font-mono);font-size:0.58rem;color:#d4d4d4;">
+        shoutout &amp; design inspiration:&nbsp;<a href="https://patrickyoussef.com" target="_blank" rel="noopener noreferrer" style="color:#bbb;text-decoration:underline;text-underline-offset:3px;">patrickyoussef.com</a>
+      </p>
+
+    </footer>
 
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add('visible');
-              observer.unobserve(e.target);
-            }
+            if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
           });
         },
         { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
