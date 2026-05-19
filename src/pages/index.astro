@@ -2,42 +2,98 @@
 import Layout from '../layouts/Layout.astro';
 
 const links = [
-  { label: "github",   href: "https://github.com/xtwothree"                },
-  { label: "linkedin", href: "https://www.linkedin.com/in/4lejandrofranco/" },
-  { label: "email",    href: "mailto:afrancojc@gmail.com"                   },
+  { label: "github",   href: "https://github.com/xtwothree"                    },
+  { label: "linkedin", href: "https://www.linkedin.com/in/4lejandrofranco/"     },
+  { label: "steam",    href: "https://steamcommunity.com/id/xtwohree/"          },
 ];
 ---
 
 <Layout>
 
-  <main style="max-width:640px;padding:0 1.5rem 0 clamp(1.5rem,8vw,7rem);flex:1;">
+  <main style="max-width:780px; margin:0 auto; padding:0 2rem 0 clamp(2rem,4vw,3.5rem); flex:1;">
     <section class="pt-16 md:pt-20 pb-24 md:pb-32">
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:var(--color-text);animation-delay:0.1s;"
-      >
-        Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.85em;color:#aaa;">^_^</span>&thinsp;new
-        to the tech space, hoping to tackle curious findings and putting them
-        into play with soon-to-come projects.
-      </p>
+      <div class="bio-row">
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:var(--color-text);margin-top:1.5rem;animation-delay:0.2s;"
-      >
-        This summer, I'm interning as a <a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">Data Scientist @ Apple</a>, team is TBD.
-      </p>
+        <!-- text -->
+        <div class="bio-text">
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:#888;margin-top:1.5rem;animation-delay:0.3s;"
-      >
-        Outside of my digital presence, I'm trying my hardest to perfect my
-        sleep schedule, lifting, or looking for ways to improve my life —
-        one percent at a time.
-      </p>
+          <p
+            class="hero-item"
+            style="font-family:var(--font-body);font-size:clamp(1.1rem,2.2vw,1.28rem);line-height:1.85;color:#6a6a68;animation-delay:0.1s;"
+          >
+            Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.85em;color:#aaa;">^_^</span>&thinsp;new
+            to the tech space, hoping to tackle curious findings and putting them
+            into play with soon-to-come projects.
+          </p>
 
+          <p
+            class="hero-item"
+            style="font-family:var(--font-body);font-size:clamp(1.1rem,2.2vw,1.28rem);line-height:1.85;color:#6a6a68;margin-top:1.4rem;animation-delay:0.2s;"
+          >
+            This summer, I'm interning as a <a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link" style="font-weight:600;color:#1e1e1e;">Data Scientist @ Apple</a>, team is TBD.
+          </p>
+
+          <p
+            class="hero-item"
+            style="font-family:var(--font-body);font-size:clamp(1.1rem,2.2vw,1.28rem);line-height:1.85;color:#6a6a68;margin-top:1.4rem;animation-delay:0.3s;"
+          >
+            Outside of my digital presence, I'm trying my hardest to perfect my
+            sleep schedule, lifting, or looking for ways to improve my life —
+            one percent at a time.
+          </p>
+
+        </div>
+
+        <!-- pixel face -->
+        <div class="face-wrap">
+          <svg
+            width="130"
+            viewBox="0 0 160 176"
+            xmlns="http://www.w3.org/2000/svg"
+            style="shape-rendering:crispEdges;display:block;"
+            aria-label="pixel face"
+          >
+            <!-- face: #f0f0ee, features: #1e1e1e, lens: #525250 -->
+
+            <!-- face shape (20x22 grid, 8px pixels) -->
+            <rect x="40" y="0"   width="80"  height="8"   fill="#f0f0ee"/>
+            <rect x="24" y="8"   width="112" height="8"   fill="#f0f0ee"/>
+            <rect x="16" y="16"  width="128" height="8"   fill="#f0f0ee"/>
+            <rect x="8"  y="24"  width="144" height="8"   fill="#f0f0ee"/>
+            <rect x="0"  y="32"  width="160" height="112" fill="#f0f0ee"/>
+            <rect x="8"  y="144" width="144" height="8"   fill="#f0f0ee"/>
+            <rect x="16" y="152" width="128" height="8"   fill="#f0f0ee"/>
+            <rect x="24" y="160" width="112" height="8"   fill="#f0f0ee"/>
+            <rect x="40" y="168" width="80"  height="8"   fill="#f0f0ee"/>
+
+            <!-- eyebrows (row 5, y=40) -->
+            <rect x="32"  y="40" width="16" height="8" fill="#1e1e1e"/>
+            <rect x="112" y="40" width="16" height="8" fill="#1e1e1e"/>
+
+            <!-- sunglasses: left frame (rows 6-9, cols 3-6) -->
+            <rect x="24" y="48" width="32" height="32" fill="#1e1e1e"/>
+            <!-- left lens interior -->
+            <rect x="32" y="56" width="16" height="16" fill="#525250"/>
+
+            <!-- bridge (rows 7-8, cols 8-11) -->
+            <rect x="64" y="56" width="32" height="16" fill="#1e1e1e"/>
+
+            <!-- sunglasses: right frame (rows 6-9, cols 13-16) -->
+            <rect x="104" y="48" width="32" height="32" fill="#1e1e1e"/>
+            <!-- right lens interior -->
+            <rect x="112" y="56" width="16" height="16" fill="#525250"/>
+
+            <!-- smile -->
+            <rect x="40"  y="104" width="8"  height="8" fill="#1e1e1e"/>
+            <rect x="48"  y="112" width="16" height="8" fill="#1e1e1e"/>
+            <rect x="64"  y="120" width="32" height="8" fill="#1e1e1e"/>
+            <rect x="96"  y="112" width="16" height="8" fill="#1e1e1e"/>
+            <rect x="112" y="104" width="8"  height="8" fill="#1e1e1e"/>
+          </svg>
+        </div>
+
+      </div>
     </section>
   </main>
 
@@ -46,8 +102,8 @@ const links = [
       {links.map((link) => (
         <a
           href={link.href}
-          target={link.href.startsWith('mailto') ? undefined : '_blank'}
-          rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+          target="_blank"
+          rel="noopener noreferrer"
           class="footer-link"
         >
           {link.label}

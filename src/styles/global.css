@@ -107,6 +107,25 @@ body {
 }
 .role-link:hover { text-decoration-color: #1e1e1e; }
 
+/* ── pixel face layout ── */
+.bio-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+.bio-text { flex: 1; min-width: 0; }
+.face-wrap {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.08));
+}
+@media (max-width: 520px) {
+  .bio-row { flex-direction: column-reverse; gap: 2rem; }
+  .face-wrap svg { width: 100px; height: auto; }
+}
+
 /* ── scrollbar ── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
