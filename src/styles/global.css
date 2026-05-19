@@ -54,6 +54,28 @@ body {
 .delay-3 { transition-delay: 0.21s; }
 .delay-4 { transition-delay: 0.28s; }
 
+/* ── logo ── */
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.logo-text {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  transition: opacity 0.15s ease;
+}
+.logo-link:hover .logo-text { opacity: 0.5; }
+.logo-line {
+  margin-top: 4px;
+  height: 1.5px;
+  width: 220%;
+  background: linear-gradient(to right, var(--color-text) 30%, transparent 100%);
+}
+
 /* ── nav links ── */
 .nav-link {
   font-family: var(--font-mono);

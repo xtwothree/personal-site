@@ -20,12 +20,43 @@ const path = Astro.url.pathname;
   </head>
   <body class="min-h-screen flex flex-col">
 
-    <nav class="w-full flex justify-center gap-8 pt-10 pb-6">
-      <a href="/projects" class={`nav-link${path.startsWith('/projects') ? ' nav-active' : ''}`}>projects</a>
-      <a href="/blog"     class={`nav-link${path.startsWith('/blog')     ? ' nav-active' : ''}`}>blog</a>
-    </nav>
+    <!-- ── header ── -->
+    <header style="display:flex;align-items:flex-start;padding:2.25rem 2.5rem 1rem;">
 
+      <!-- logo -->
+      <div style="flex:1;">
+        <a href="/" class="logo-link">
+          <span class="logo-text">alyx</span>
+          <div class="logo-line"></div>
+        </a>
+      </div>
+
+      <!-- nav -->
+      <nav style="display:flex;gap:2rem;padding-top:0.15rem;">
+        <a href="/projects" class={`nav-link${path.startsWith('/projects') ? ' nav-active' : ''}`}>projects</a>
+        <a href="/blog"     class={`nav-link${path.startsWith('/blog')     ? ' nav-active' : ''}`}>blog</a>
+      </nav>
+
+      <div style="flex:1;"></div>
+    </header>
+
+    <!-- ── page content ── -->
     <slot />
+
+    <!-- ── footer ── -->
+    <footer style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0.65rem;padding:2rem 1rem 2.5rem;">
+      <div style="display:flex;gap:1.75rem;">
+        <a href="https://github.com/xtwothree"                   target="_blank" rel="noopener noreferrer" class="footer-link">github</a>
+        <a href="https://www.linkedin.com/in/4lejandrofranco/"   target="_blank" rel="noopener noreferrer" class="footer-link">linkedin</a>
+        <a href="https://steamcommunity.com/id/xtwohree/"        target="_blank" rel="noopener noreferrer" class="footer-link">steam</a>
+      </div>
+      <p style="font-family:var(--font-mono);font-size:0.62rem;color:#b0b0b0;">
+        site built with astro &amp; tailwind
+      </p>
+      <p style="font-family:var(--font-mono);font-size:0.58rem;color:#c0c0c0;">
+        design inspiration:&nbsp;<a href="https://patrickyoussef.com" target="_blank" rel="noopener noreferrer" style="color:#aaa;text-decoration:underline;text-underline-offset:3px;">patrickyoussef.com</a>
+      </p>
+    </footer>
 
   </body>
 </html>
