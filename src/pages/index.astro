@@ -4,10 +4,9 @@ import '../styles/global.css';
 const name = "Alejandro Franco";
 
 const links = [
-  { label: "GitHub",      href: "https://github.com/xtwothree",          note: "xtwothree" },
-  { label: "Twitter / X", href: "https://twitter.com/xtwothree",          note: "xtwothree" },
-  { label: "LinkedIn",    href: "https://www.linkedin.com/in/4lejandrofranco/", note: "4lejandrofranco" },
-  { label: "Email",       href: "mailto:afrancojc@gmail.com",             note: "↗"         },
+  { label: "github",   href: "https://github.com/xtwothree"                  },
+  { label: "linkedin", href: "https://www.linkedin.com/in/4lejandrofranco/"   },
+  { label: "email",    href: "mailto:afrancojc@gmail.com"                     },
 ];
 ---
 
@@ -23,67 +22,44 @@ const links = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body class="min-h-screen">
 
-    <div class="max-w-[600px] mx-auto px-6">
+    <div style="max-width:640px; padding: 0 1.5rem 0 clamp(1.5rem, 8vw, 7rem);">
 
-      <!-- ── nav ── -->
-      <header class="hero-item flex items-center justify-between pt-10 pb-2" style="animation-delay:0s;">
-        <span style="font-family:var(--font-display);font-size:0.85rem;font-weight:600;letter-spacing:-0.01em;color:var(--color-text);">
-          Alejandro Franco
-        </span>
-        <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--color-muted);">
-          xtwothree
+      <!-- ── name ── -->
+      <header class="hero-item pt-14 md:pt-20 pb-12 md:pb-16" style="animation-delay:0s;">
+        <span style="font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:800;letter-spacing:-0.02em;color:var(--color-text);">
+          {name}
         </span>
       </header>
 
       <!-- ── bio ── -->
-      <section class="pt-20 pb-16 md:pt-28 md:pb-20">
+      <section class="pb-24 md:pb-32">
 
         <p
           class="hero-item"
-          style="
-            font-family: var(--font-body);
-            font-size: clamp(1.15rem, 2.5vw, 1.3rem);
-            line-height: 1.8;
-            color: var(--color-text);
-            animation-delay: 0.1s;
-          "
+          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:var(--color-text);animation-delay:0.1s;"
         >
-          Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.9em;">^_^</span>&thinsp;new
+          Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.85em;color:#aaa;">^_^</span>&thinsp;new
           to the tech space, hoping to tackle curious findings and putting them
           into play with soon-to-come projects.
         </p>
 
         <p
           class="hero-item"
-          style="
-            font-family: var(--font-body);
-            font-size: clamp(1.15rem, 2.5vw, 1.3rem);
-            line-height: 1.8;
-            color: var(--color-text);
-            margin-top: 1.4rem;
-            animation-delay: 0.2s;
-          "
+          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:var(--color-text);margin-top:1.5rem;animation-delay:0.2s;"
         >
           Currently, I'm heading to Apple as a Data Science intern — team is TBD.
         </p>
 
         <p
           class="hero-item"
-          style="
-            font-family: var(--font-body);
-            font-size: clamp(1.15rem, 2.5vw, 1.3rem);
-            line-height: 1.8;
-            color: #777;
-            margin-top: 1.4rem;
-            animation-delay: 0.3s;
-          "
+          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:#888;margin-top:1.5rem;animation-delay:0.3s;"
         >
           Outside of my digital presence, I'm trying my hardest to perfect my
           sleep schedule, lifting, or looking for ways to improve my life —
@@ -92,41 +68,24 @@ const links = [
 
       </section>
 
-      <!-- ── rule ── -->
-      <hr style="border:none;border-top:1px solid var(--color-border);margin:0;" />
-
-      <!-- ── links ── -->
-      <section class="py-14">
-
-        <p class="sr" style="font-family:var(--font-display);font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-muted);margin-bottom:0.75rem;">
-          Elsewhere
-        </p>
-
-        <ul>
-          {links.map((link, i) => (
-            <li class={`sr delay-${i + 1}`}>
-              <a
-                href={link.href}
-                class="link-row"
-                target={link.href.startsWith('mailto') ? undefined : '_blank'}
-                rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              >
-                <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:500;">
-                  {link.label}
-                </span>
-                <span class="ext">{link.note !== '↗' ? link.note : '↗'}</span>
-              </a>
-            </li>
+      <!-- ── footer links ── -->
+      <footer class="sr pb-12">
+        <div style="display:flex;gap:1.6rem;margin-bottom:1rem;">
+          {links.map((link) => (
+            <a
+              href={link.href}
+              target={link.href.startsWith('mailto') ? undefined : '_blank'}
+              rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+              style="font-family:var(--font-mono);font-size:0.7rem;color:var(--color-muted);text-decoration:none;transition:color 0.15s ease;"
+              onmouseover="this.style.color='#1a1a1a'"
+              onmouseout="this.style.color='var(--color-muted)'"
+            >
+              {link.label}
+            </a>
           ))}
-        </ul>
-
-      </section>
-
-      <!-- ── footer ── -->
-      <hr style="border:none;border-top:1px solid var(--color-border);" />
-      <footer class="py-8">
-        <p style="font-family:var(--font-mono);font-size:0.62rem;color:#ccc;">
-          &copy; {new Date().getFullYear()} {name}
+        </div>
+        <p style="font-family:var(--font-mono);font-size:0.65rem;color:#ccc;">
+          site built with astro &amp; tailwind &middot; &copy; {new Date().getFullYear()}
         </p>
       </footer>
 

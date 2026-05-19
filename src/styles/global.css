@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Nunito', system-ui, sans-serif;
+  --font-display: 'Syne', system-ui, sans-serif;
   --font-body:    'Lora', Georgia, serif;
   --font-mono:    'Space Mono', ui-monospace, monospace;
 
