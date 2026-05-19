@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 
 const links = [
   { label: "github",   href: "https://github.com/xtwothree"                },
@@ -8,103 +8,70 @@ const links = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alejandro Franco</title>
-    <meta name="description" content="Personal site of Alejandro Franco." />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<Layout>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <main style="max-width:640px;padding:0 1.5rem 0 clamp(1.5rem,8vw,7rem);flex:1;">
+    <section class="pt-16 md:pt-20 pb-24 md:pb-32">
 
-  <body class="min-h-screen flex flex-col">
-
-    <!-- ── nav ── -->
-    <nav class="hero-item w-full flex justify-center gap-8 pt-10 pb-6" style="animation-delay:0s;">
-      <a href="/projects" class="nav-link">projects</a>
-      <a href="/blog"     class="nav-link">blog</a>
-      <a href="/musings"  class="nav-link">musings</a>
-    </nav>
-
-    <!-- ── bio ── -->
-    <main style="max-width:640px;padding:0 1.5rem 0 clamp(1.5rem,8vw,7rem);flex:1;">
-
-      <section class="pt-16 md:pt-20 pb-24 md:pb-32">
-
-        <p
-          class="hero-item"
-          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:var(--color-text);animation-delay:0.1s;"
-        >
-          Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.85em;color:#aaa;">^_^</span>&thinsp;new
-          to the tech space, hoping to tackle curious findings and putting them
-          into play with soon-to-come projects.
-        </p>
-
-        <p
-          class="hero-item"
-          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:var(--color-text);margin-top:1.5rem;animation-delay:0.2s;"
-        >
-          This summer, I'm interning as a <a href="https://apple.com" target="_blank" rel="noopener noreferrer" style="font-weight:500;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#bbb;">Data Scientist @ Apple</a>, team is TBD.
-        </p>
-
-        <p
-          class="hero-item"
-          style="font-family:var(--font-body);font-size:clamp(1.2rem,2.6vw,1.42rem);line-height:1.82;color:#888;margin-top:1.5rem;animation-delay:0.3s;"
-        >
-          Outside of my digital presence, I'm trying my hardest to perfect my
-          sleep schedule, lifting, or looking for ways to improve my life —
-          one percent at a time.
-        </p>
-
-      </section>
-
-    </main>
-
-    <!-- ── footer ── -->
-    <footer class="sr w-full flex flex-col items-center gap-3 pb-10 pt-8" style="">
-
-      <div style="display:flex;gap:1.75rem;">
-        {links.map((link) => (
-          <a
-            href={link.href}
-            target={link.href.startsWith('mailto') ? undefined : '_blank'}
-            rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-            class="footer-link"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-
-      <p style="font-family:var(--font-mono);font-size:0.62rem;color:#c0c0c0;">
-        site built with astro &amp; tailwind &middot; &copy; {new Date().getFullYear()}
+      <p
+        class="hero-item"
+        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:var(--color-text);animation-delay:0.1s;"
+      >
+        Greetings, I'm Alejandro&thinsp;<span style="font-family:var(--font-mono);font-size:0.85em;color:#aaa;">^_^</span>&thinsp;new
+        to the tech space, hoping to tackle curious findings and putting them
+        into play with soon-to-come projects.
       </p>
 
-      <p style="font-family:var(--font-mono);font-size:0.58rem;color:#d4d4d4;">
-        shoutout &amp; design inspiration:&nbsp;<a href="https://patrickyoussef.com" target="_blank" rel="noopener noreferrer" style="color:#bbb;text-decoration:underline;text-underline-offset:3px;">patrickyoussef.com</a>
+      <p
+        class="hero-item"
+        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:var(--color-text);margin-top:1.5rem;animation-delay:0.2s;"
+      >
+        This summer, I'm interning as a <a href="https://apple.com" target="_blank" rel="noopener noreferrer" style="font-weight:500;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#bbb;">Data Scientist @ Apple</a>, team is TBD.
       </p>
 
-    </footer>
+      <p
+        class="hero-item"
+        style="font-family:var(--font-body);font-size:clamp(1.35rem,3vw,1.65rem);line-height:1.8;color:#888;margin-top:1.5rem;animation-delay:0.3s;"
+      >
+        Outside of my digital presence, I'm trying my hardest to perfect my
+        sleep schedule, lifting, or looking for ways to improve my life —
+        one percent at a time.
+      </p>
 
-    <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-      );
-      document.querySelectorAll('.sr').forEach((el) => observer.observe(el));
-    </script>
+    </section>
+  </main>
 
-  </body>
-</html>
+  <footer class="sr w-full flex flex-col items-center gap-3 pb-10 pt-4">
+    <div style="display:flex;gap:1.75rem;">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          target={link.href.startsWith('mailto') ? undefined : '_blank'}
+          rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+          class="footer-link"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <p style="font-family:var(--font-mono);font-size:0.62rem;color:#b0b0b0;">
+      site built with astro &amp; tailwind &middot; &copy; {new Date().getFullYear()}
+    </p>
+    <p style="font-family:var(--font-mono);font-size:0.58rem;color:#c0c0c0;">
+      shoutout &amp; design inspiration:&nbsp;<a href="https://patrickyoussef.com" target="_blank" rel="noopener noreferrer" style="color:#aaa;text-decoration:underline;text-underline-offset:3px;">patrickyoussef.com</a>
+    </p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.sr').forEach((el) => observer.observe(el));
+  </script>
+
+</Layout>
