@@ -35,102 +35,26 @@ const links = [
     <!-- ═══════════════════ HERO ═══════════════════ -->
     <section class="max-w-[680px] mx-auto px-6 pt-28 pb-20 md:pt-40 md:pb-28">
 
-      <!-- top tag -->
-      <div
-        class="hero-item flex items-center gap-3 mb-8"
-        style="animation-delay: 0s;"
-      >
-        <span style="
-          display:inline-block;
-          width:22px; height:2px;
-          background:var(--color-red);
-          transform:skewX(-15deg);
-        "></span>
-        <span style="
-          font-family:var(--font-ui);
-          font-weight:700;
-          font-style:italic;
-          font-size:0.7rem;
-          letter-spacing:0.2em;
-          text-transform:uppercase;
-          color:var(--color-red);
-        ">Personal Site</span>
-        <span style="
-          font-family:var(--font-ui);
-          font-size:0.7rem;
-          letter-spacing:0.12em;
-          color:var(--color-muted);
-        ">◆ {new Date().getFullYear()}</span>
+      <!-- red marker -->
+      <div class="hero-item flex items-center gap-3 mb-10" style="animation-delay:0s;">
+        <span style="display:inline-block;width:18px;height:2px;background:var(--color-red);transform:skewX(-15deg);flex-shrink:0;"></span>
+        <span style="font-family:var(--font-ui);font-weight:700;font-style:italic;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-red);">Intro</span>
       </div>
 
-      <!-- main handle -->
-      <h1
-        class="hero-item leading-none mb-2"
-        style="
-          font-family: var(--font-display);
-          font-size: clamp(4.5rem, 14vw, 8rem);
-          color: #fff;
-          letter-spacing: 0.02em;
-          animation-delay: 0.08s;
-        "
-      >
-        {handle}
-      </h1>
-
-      <!-- real name -->
-      <p
-        class="hero-item mb-8"
-        style="
-          font-family: var(--font-ui);
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1rem;
-          letter-spacing: 0.1em;
-          color: var(--color-muted);
-          animation-delay: 0.16s;
-        "
-      >
-        {name}
-      </p>
-
-      <!-- tagline -->
-      <div
-        class="hero-item flex items-center gap-3"
-        style="animation-delay: 0.24s;"
-      >
-        <span style="color:var(--color-red); font-family:var(--font-mono); font-size:0.65rem;">◆</span>
-        <p style="
-          font-family: var(--font-sans);
-          font-size: 1rem;
-          font-weight: 300;
-          color: #888;
-          letter-spacing: 0.02em;
-        ">{tagline}</p>
-      </div>
-
-    </section>
-
-    <!-- rule -->
-    <div class="max-w-[680px] mx-auto px-6"><div class="p5-rule"></div></div>
-
-    <!-- ═══════════════════ ABOUT ═══════════════════ -->
-    <section class="max-w-[680px] mx-auto px-6 py-20">
-
-      <div class="sr p5-label">
-        <span>About</span>
-      </div>
-
-      <div class="space-y-5">
-        <p class="sr delay-1" style="font-family:var(--font-sans); font-size:0.95rem; line-height:1.85; color:#909090;">
-          Incoming machine learning engineer at Apple's Applied Data Science program.
-          Interested in the gap between raw models and things that actually work in the world.
+      <!-- intro paragraph -->
+      <div class="hero-item" style="animation-delay:0.1s;">
+        <p style="font-family:var(--font-sans);font-size:clamp(1.15rem,2.4vw,1.35rem);font-weight:300;line-height:1.75;color:#c8c8c8;">
+          Hey — I'm <span style="color:#fff;font-weight:500;">Alejandro</span>, an incoming machine learning engineer
+          at Apple's Applied Data Science program. I care about the gap between a model
+          that trains and one that actually ships — and the judgment calls in between.
         </p>
-        <p class="sr delay-2" style="font-family:var(--font-sans); font-size:0.95rem; line-height:1.85; color:#909090;">
-          I care about building systems that are rigorous where it counts and fast where
-          it matters — and understanding why things work, not just that they do.
-        </p>
-        <p class="sr delay-3" style="font-family:var(--font-sans); font-size:0.95rem; line-height:1.85; color:#909090;">
-          Outside of work: music, long walks, and probably too many tabs open.
+      </div>
+
+      <!-- second beat -->
+      <div class="hero-item mt-5" style="animation-delay:0.2s;">
+        <p style="font-family:var(--font-sans);font-size:clamp(1.15rem,2.4vw,1.35rem);font-weight:300;line-height:1.75;color:#686868;">
+          Usually online as <span style="color:var(--color-red);font-weight:400;">xtwothree</span>.
+          Music, long walks, too many tabs open.
         </p>
       </div>
 
