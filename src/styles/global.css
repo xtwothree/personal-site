@@ -5,10 +5,11 @@
   --font-body:    'Lora', Georgia, serif;
   --font-mono:    'Space Mono', ui-monospace, monospace;
 
-  --color-bg:     #fafaf8;
-  --color-text:   #1a1a1a;
-  --color-muted:  #999;
-  --color-border: #e8e8e5;
+  --color-bg:      #e4e4e2;
+  --color-surface: #d8d8d6;
+  --color-text:    #1e1e1e;
+  --color-muted:   #7a7a7a;
+  --color-border:  #cccccb;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -25,7 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: #1a1a1a; color: #fafaf8; }
+::selection { background: #1e1e1e; color: #e4e4e2; }
 
 /* ── hero entrance ── */
 @keyframes fadeUp {
@@ -98,4 +99,4 @@ body {
 /* ── scrollbar ── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #b8b8b6; border-radius: 2px; }
