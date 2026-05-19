@@ -67,7 +67,7 @@ body {
   color: var(--color-text);
   transition: opacity 0.18s ease;
 }
-.logo-link:hover .logo-text { opacity: 0.5; }
+.logo-link:hover .logo-text { opacity: 1; }
 .logo-line {
   margin-top: 3px;
   height: 1px;
