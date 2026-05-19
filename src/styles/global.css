@@ -96,6 +96,17 @@ body {
 }
 .link-row:hover .ext { color: #aaa; }
 
+/* ── role link ── */
+.role-link {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.25s ease;
+}
+.role-link:hover { text-decoration-color: #1e1e1e; }
+
 /* ── scrollbar ── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
