@@ -62,9 +62,10 @@ body {
 .logo-text {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--color-text);
+  color: #252523;
   transition: opacity 0.18s ease;
 }
 .logo-link:hover .logo-text { opacity: 1; }
