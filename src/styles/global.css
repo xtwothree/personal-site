@@ -64,6 +64,7 @@ body {
   transition: color 0.15s ease;
 }
 .nav-link:hover { color: var(--color-text); }
+.nav-active { color: var(--color-text) !important; }
 
 /* ── footer links ── */
 .footer-link {
