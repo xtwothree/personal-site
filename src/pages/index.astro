@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <main class="flex-1 flex flex-col items-center justify-center pb-20">
+    <p class="site-handle">xtwothree</p>
     <div class="about-card">
 
       <!-- ── overview ── -->
@@ -230,6 +231,16 @@ import Layout from '../layouts/Layout.astro';
     width: calc(100% - 3rem);
     opacity: 0;
     animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  }
+
+  .site-handle {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin: 0 0 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* ── scenes ── */
