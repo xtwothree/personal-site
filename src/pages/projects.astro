@@ -3,12 +3,104 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="projects — Alejandro Franco">
-  <main class="flex-1 flex flex-col items-center justify-center pb-20">
-    <p style="font-family:'Space Mono',monospace;font-size:0.72rem;color:#bbb;letter-spacing:0.12em;">
-      [ under construction ]
-    </p>
-    <p style="font-family:'Space Mono',monospace;font-size:0.6rem;color:#ccc;margin-top:0.75rem;letter-spacing:0.08em;">
-      something is brewing
-    </p>
+  <main class="flex-1 flex flex-col items-center pt-12 pb-20">
+    <div class="projects-wrap sr visible">
+
+      <p class="projects-heading">// projects</p>
+
+      <div class="project-list">
+
+        <a href="https://github.com/xtwothree/personal-site" target="_blank" rel="noopener noreferrer" class="project-item">
+          <span class="project-num">01</span>
+          <div class="project-body">
+            <p class="project-name">personal site</p>
+            <p class="project-sub">minimal portfolio with glitch ui &amp; scene cards · 2025</p>
+            <p class="project-tech">astro · tailwind · typescript</p>
+          </div>
+        </a>
+
+        <div class="project-item project-ghost">
+          <span class="project-num">02</span>
+          <div class="project-body">
+            <p class="project-name">more soon</p>
+            <p class="project-sub">—</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </main>
 </Layout>
+
+<style>
+  .projects-wrap {
+    width: 100%;
+    max-width: 580px;
+    padding: 0 1.5rem;
+  }
+  .projects-heading {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    margin: 0 0 1.75rem;
+  }
+  .project-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-item {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    align-items: start;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .project-item:last-child { border-bottom: 1px solid var(--color-border); }
+  a.project-item:hover { opacity: 0.65; }
+  .project-ghost { cursor: default; }
+
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    line-height: 1;
+    padding-top: 0.1rem;
+    opacity: 0.5;
+  }
+  .project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .project-name {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .project-ghost .project-name { color: var(--color-muted); opacity: 0.5; }
+  .project-sub {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .project-tech {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-muted);
+    opacity: 0.55;
+    margin: 0.1rem 0 0;
+  }
+
+  @media (max-width: 480px) {
+    .projects-wrap { padding: 0 1.25rem; }
+    .project-num { font-size: 1.1rem; }
+  }
+</style>

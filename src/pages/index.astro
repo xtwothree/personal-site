@@ -3,47 +3,331 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+  <main class="flex-1 flex flex-col items-center justify-center pb-20">
+    <div class="about-card">
 
-  <main style="max-width:680px; margin-left:clamp(3rem,10vw,8rem); padding:0 2rem; flex:1;">
-    <section class="pt-24 md:pt-32 pb-24 md:pb-32">
+      <!-- ── overview ── -->
+      <div class="about-scene active" data-scene="overview">
+        <p class="about-bio">
+          I'm Alejandro — a rookie in the tech space, looking to put my developing skills toward projects worth building.
+        </p>
+        <div class="menu">
+          <button class="menu-item scene-btn" data-target="now"  data-label="now">
+            <span class="menu-label">now</span>
+            <span class="menu-arrow">→</span>
+          </button>
+          <button class="menu-item scene-btn" data-target="next" data-label="next">
+            <span class="menu-label">next</span>
+            <span class="menu-arrow">→</span>
+          </button>
+          <button class="menu-item scene-btn" data-target="edu"  data-label="edu">
+            <span class="menu-label">edu</span>
+            <span class="menu-arrow">→</span>
+          </button>
+          <button class="menu-item scene-btn" data-target="life" data-label="life">
+            <span class="menu-label">life</span>
+            <span class="menu-arrow">→</span>
+          </button>
+        </div>
+      </div>
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.25rem,2.6vw,1.5rem);line-height:1.6;color:#4a4a48;animation-delay:0.1s;"
-      >
-        I'm Alejandro — a rookie in the tech space, looking
-        to put my developing skills toward projects worth building.
-      </p>
+      <!-- ── now ── -->
+      <div class="about-scene" data-scene="now">
+        <button class="detail-header scene-btn" data-target="overview">// now</button>
+        <div class="detail-rows">
+          <span class="detail-key">role</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val detail-val-split">
+            <span>finance development experience intern</span>
+            <span class="detail-loc">cupertino, ca</span>
+          </span>
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.25rem,2.6vw,1.5rem);line-height:1.6;color:#4a4a48;margin-top:1.4rem;animation-delay:0.2s;"
-      >
-        This summer, I'm interning as a <a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link" style="color:#252523;">Finance Development Experience Analyst @ Apple</a> — Worldwide Sales Finance, iPhone.
-      </p>
+          <span class="detail-key">co</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val"><a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">apple</a></span>
 
-      <p
-        class="hero-item"
-        style="font-family:var(--font-body);font-size:clamp(1.25rem,2.6vw,1.5rem);line-height:1.6;color:#4a4a48;margin-top:1.4rem;animation-delay:0.3s;"
-      >
-        Outside of my digital presence, I'm trying my hardest to perfect my
-        sleep schedule, lifting, or looking for ways to improve my life —
-        one percent at a time.
-      </p>
+          <span class="detail-key">team</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val"><a href="https://www.apple.com/iphone/?afid=p240%7Cgo~cmp-14645102856~adg-126654827229~ad-799623051072_kwd-334361787~dev-c~ext-~prd-~mca-~nt-search&cid=wwa-us-kwgo-iphone-core-iphonefamily-iphone_hero_avail_031126-iPhone_Core_Exact-iPhone_Exact" target="_blank" rel="noopener noreferrer" class="role-link">worldwide sales finance · iphone</a></span>
 
-    </section>
+          <span class="detail-key">focus</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">workflow &amp; automation</span>
+
+          <span class="detail-key">when</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">summer 2026</span>
+        </div>
+      </div>
+
+      <!-- ── next ── -->
+      <div class="about-scene" data-scene="next">
+        <button class="detail-header scene-btn" data-target="overview">// next</button>
+        <div class="detail-rows">
+          <span class="detail-key">role</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val detail-val-split">
+            <span>machine learning engineer intern</span>
+            <span class="detail-loc">austin, tx</span>
+          </span>
+
+          <span class="detail-key">co</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val"><a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">apple</a></span>
+
+          <span class="detail-key">when</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">summer 2027</span>
+
+          <span class="detail-key">note</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">more to build. more to prove.</span>
+        </div>
+      </div>
+
+      <!-- ── edu ── -->
+      <div class="about-scene" data-scene="edu">
+        <button class="detail-header scene-btn" data-target="overview">// edu</button>
+        <div class="detail-rows">
+          <span class="detail-key">school</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val"><a href="https://www.ucsb.edu" target="_blank" rel="noopener noreferrer" class="role-link">University of California, Santa Barbara</a></span>
+
+          <span class="detail-key">major</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">Statistics &amp; Data Science</span>
+
+          <span class="detail-key">focus</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">Data Engineering</span>
+
+          <span class="detail-key">courses</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">Data Structures &amp; Algorithms · Artificial Intelligence · Machine Learning · Deep Learning</span>
+
+        </div>
+      </div>
+
+      <!-- ── life ── -->
+      <div class="about-scene" data-scene="life">
+        <button class="detail-header scene-btn" data-target="overview">// life</button>
+        <div class="detail-rows">
+          <span class="detail-key">sleep</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">optimizing consistency</span>
+
+          <span class="detail-key">lift</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">building the foundation</span>
+
+          <span class="detail-key">growth</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">1% better every day</span>
+
+          <span class="detail-key">games</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">Valorant · Stardew Valley · Expedition 33</span>
+        </div>
+      </div>
+
+    </div>
   </main>
-
-  <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-    );
-    document.querySelectorAll('.sr').forEach((el) => observer.observe(el));
-  </script>
-
 </Layout>
+
+<script>
+  const GLYPHS = '#!%&@*/\\?><~^';
+
+  function startIdleGlitch(el: HTMLElement, target: string): () => void {
+    let timer: ReturnType<typeof setTimeout>;
+    function schedule() {
+      timer = setTimeout(() => {
+        const i = Math.floor(Math.random() * target.length);
+        el.textContent = target.substring(0, i) + GLYPHS[Math.floor(Math.random() * GLYPHS.length)] + target.substring(i + 1);
+        setTimeout(() => { el.textContent = target; schedule(); }, 110);
+      }, 700 + Math.random() * 1100);
+    }
+    schedule();
+    return () => clearTimeout(timer);
+  }
+
+  function scrambleTo(el: HTMLElement, target: string) {
+    const frames = 22;
+    const resolveAt = Array.from({ length: target.length }, () => Math.floor(Math.random() * frames));
+    let frame = 0;
+    function tick() {
+      let out = '';
+      let done = 0;
+      for (let i = 0; i < target.length; i++) {
+        if (frame >= resolveAt[i]) { out += target[i]; done++; }
+        else out += GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      }
+      el.textContent = out;
+      if (done < target.length) { frame++; requestAnimationFrame(tick); }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function initCard() {
+    const card = document.querySelector('.about-card');
+    if (!card) return;
+
+    // ── scene switching ──
+    card.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLElement>('.scene-btn');
+      if (!btn) return;
+      const target = btn.dataset.target;
+      if (!target) return;
+      if (target !== 'overview') {
+        (card as HTMLElement).style.minHeight = card.getBoundingClientRect().height + 'px';
+      } else {
+        (card as HTMLElement).style.minHeight = '';
+      }
+      card.querySelectorAll<HTMLElement>('.about-scene').forEach(s => s.classList.remove('active'));
+      card.querySelector<HTMLElement>(`[data-scene="${target}"]`)?.classList.add('active');
+    });
+
+    // ── glitch labels ──
+    card.querySelectorAll<HTMLElement>('.menu-item').forEach(item => {
+      const labelEl = item.querySelector<HTMLElement>('.menu-label');
+      const target = item.dataset.label;
+      if (!labelEl || !target) return;
+
+      let stopIdle = startIdleGlitch(labelEl, target);
+
+      item.addEventListener('mouseenter', () => {
+        stopIdle();
+        scrambleTo(labelEl, target);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        labelEl.textContent = target;
+        stopIdle = startIdleGlitch(labelEl, target);
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initCard);
+</script>
+
+<style>
+  .about-card {
+    border: 1px solid var(--color-border);
+    padding: 2.75rem 3.25rem;
+    max-width: 580px;
+    width: calc(100% - 3rem);
+  }
+
+  /* ── scenes ── */
+  .about-scene { display: none; }
+  .about-scene.active {
+    display: block;
+    animation: sceneFade 0.18s ease forwards;
+  }
+  @keyframes sceneFade {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── overview ── */
+  .about-bio {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--color-text);
+    line-height: 1.75;
+    margin: 0;
+    text-align: justify;
+    text-align-last: left;
+  }
+  .menu {
+    margin-top: 1.5rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.85rem 0;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    background: none;
+    cursor: pointer;
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-label {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease;
+  }
+  .menu-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .menu-item:hover .menu-arrow {
+    transform: translateX(5px);
+    color: var(--color-text);
+  }
+
+  /* ── detail ── */
+  .detail-header {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    margin: 0;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.15s ease;
+  }
+  .detail-header:hover { color: var(--color-text); }
+  .detail-rows {
+    display: grid;
+    grid-template-columns: 3.4rem 1.4rem 1fr;
+    row-gap: 0.55rem;
+    align-items: baseline;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .detail-key {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-muted);
+  }
+  .detail-sep {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-border);
+  }
+  .detail-val {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text);
+    line-height: 1.55;
+  }
+  .detail-val-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .detail-loc {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .about-card { padding: 1.75rem; }
+  }
+</style>

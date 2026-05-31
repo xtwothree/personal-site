@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Syne', system-ui, sans-serif;
-  --font-body:    'Lora', Georgia, serif;
-  --font-mono:    'Space Mono', ui-monospace, monospace;
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body:    'Geist', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', ui-monospace, monospace;
 
   --color-bg:      #e4e4e2;
   --color-surface: #d8d8d6;
@@ -11,6 +11,37 @@
   --color-muted:   #7a7a7a;
   --color-border:  #cccccb;
 }
+
+[data-theme="dark"] {
+  --color-bg:      #111110;
+  --color-surface: #1a1a18;
+  --color-text:    #e4e4e2;
+  --color-muted:   #6a6a68;
+  --color-border:  #2a2a28;
+}
+
+html[data-vt="theme"]::view-transition-old(root) { animation: none; }
+html[data-vt="theme"]::view-transition-new(root) { animation: none; }
+
+[data-theme="dark"] body { background: var(--color-bg); color: var(--color-text); }
+[data-theme="dark"] html { background: var(--color-bg); }
+[data-theme="dark"] ::selection { background: #e4e4e2; color: #111110; }
+[data-theme="dark"] .hero-item { color: #c4c4c2 !important; }
+[data-theme="dark"] .role-link { color: #e0e0de !important; }
+
+/* ── theme toggle ── */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  padding: 0;
+  transition: color 0.15s ease;
+  line-height: 1;
+}
+.theme-toggle:hover { color: var(--color-text); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -27,6 +58,33 @@ body {
 }
 
 ::selection { background: #1e1e1e; color: #e4e4e2; }
+
+/* ── orbital background ── */
+.orbital-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.orbital-svg {
+  width: 500px;
+  height: 500px;
+  color: var(--color-text);
+  opacity: 0.12;
+  overflow: visible;
+}
+
+/* ── hero line ── */
+.hero-line {
+  font-family: var(--font-body);
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin: 0 0 2.5rem;
+}
 
 /* ── hero entrance ── */
 @keyframes fadeUp {
@@ -53,6 +111,25 @@ body {
 .delay-2 { transition-delay: 0.14s; }
 .delay-3 { transition-delay: 0.21s; }
 .delay-4 { transition-delay: 0.28s; }
+
+/* ── site name ── */
+.site-name {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+/* ── back button ── */
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease;
+}
+.back-link:hover { color: var(--color-text); }
 
 /* ── logo ── */
 .logo-link {
@@ -150,6 +227,124 @@ body {
 @media (max-width: 520px) {
   .bio-row { flex-direction: column-reverse; gap: 2rem; }
   .face-wrap svg { width: 100px; height: auto; }
+}
+
+/* ── home hero ── */
+.home-hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  margin: 0 0 0.55rem;
+}
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  margin: 0 0 2.75rem;
+}
+.hero-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+}
+.hero-nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.15s ease;
+}
+.hero-nav-link:hover { color: var(--color-text); }
+.hero-socials {
+  display: flex;
+  gap: 1.75rem;
+}
+.hero-social-link {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+.hero-social-link:hover { opacity: 1; }
+
+/* ── mobile header ── */
+@media (max-width: 640px) {
+  header {
+    padding: 1rem 1.25rem 0.75rem !important;
+  }
+  .hero-item {
+    font-size: 1rem !important;
+    margin-top: 1rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* ── resume sections ── */
+.resume-block {
+  margin-top: 3rem;
+}
+.resume-heading {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.resume-entry {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.resume-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.resume-title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+.resume-meta {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.resume-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.3rem;
+  line-height: 1.5;
 }
 
 /* ── scrollbar ── */
