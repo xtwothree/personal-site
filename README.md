@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# personal site
 
-```sh
-npm create astro@latest -- --template minimal
+Personal portfolio with bio, experience, projects, and education.
+
+Live at [afrancojc.vercel.app](https://afrancojc.vercel.app) *(or your domain here)*
+
+## Stack
+
+- Astro v6
+- Tailwind CSS
+- TypeScript
+
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Opens at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Build
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
+npm run preview   # optional: preview production output
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Output is in `dist/`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Edit content
 
-Any static assets, like images, can be placed in the `public/` directory.
+All page content lives directly in `src/pages/`:
 
-## 🧞 Commands
+- `index.astro` — homepage card (bio, now/next/edu/life scenes)
+- `projects.astro` — projects list
+- `blog.astro` — blog (coming soon)
 
-All commands are run from the root of the project, from a terminal:
+Global styles are in `src/styles/global.css`. Layout, header, footer, and theme toggle are in `src/layouts/Layout.astro`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deploy
 
-## 👀 Want to learn more?
+Configured for Vercel: build command `npm run build`, output directory `dist`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## About
+
+Built from scratch — no template. Design inspired by [patrickyoussef.com](https://patrickyoussef.com) and [locbuilds.tech](https://locbuilds.tech).
