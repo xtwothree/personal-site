@@ -1,20 +1,29 @@
 import { createCanvas } from 'canvas';
 import { writeFileSync } from 'fs';
 
-const w = 1200, h = 630;
-const canvas = createCanvas(w, h);
-const ctx = canvas.getContext('2d');
-
-// background
-ctx.fillStyle = '#111110';
-ctx.fillRect(0, 0, w, h);
-
-// "x"
-ctx.fillStyle = '#e4e4e2';
-ctx.font = 'bold 220px monospace';
-ctx.textAlign = 'center';
-ctx.textBaseline = 'middle';
-ctx.fillText('x', w / 2, h / 2);
-
-writeFileSync('public/og-image.png', canvas.toBuffer('image/png'));
+// og image — square for clean thumbnail in iMessage
+const og = createCanvas(600, 600);
+const ogCtx = og.getContext('2d');
+ogCtx.fillStyle = '#111110';
+ogCtx.fillRect(0, 0, 600, 600);
+ogCtx.fillStyle = '#e4e4e2';
+ogCtx.font = 'bold 260px monospace';
+ogCtx.textAlign = 'center';
+ogCtx.textBaseline = 'middle';
+ogCtx.fillText('x', 300, 300);
+writeFileSync('public/og-image.png', og.toBuffer('image/png'));
 console.log('Generated public/og-image.png');
+
+// favicon — 64x64 PNG used as ico replacement
+const fav = createCanvas(64, 64);
+const favCtx = fav.getContext('2d');
+favCtx.fillStyle = '#111110';
+favCtx.roundRect(0, 0, 64, 64, 10);
+favCtx.fill();
+favCtx.fillStyle = '#e4e4e2';
+favCtx.font = 'bold 40px monospace';
+favCtx.textAlign = 'center';
+favCtx.textBaseline = 'middle';
+favCtx.fillText('x', 32, 33);
+writeFileSync('public/favicon.png', fav.toBuffer('image/png'));
+console.log('Generated public/favicon.png');
