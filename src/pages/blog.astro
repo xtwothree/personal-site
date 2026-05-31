@@ -1,14 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    slug: 'on-consistency',
+    label: 'on consistency',
+    posts: [
+      {
+        title: null,
+        date: null,
+        desc: null,
+        ghost: true,
+      },
+    ],
+  },
+];
 ---
 
 <Layout title="blog — Alejandro Franco">
   <main class="flex-1 flex flex-col items-center justify-center pb-20">
-    <p style="font-family:'Space Mono',monospace;font-size:0.72rem;color:#bbb;letter-spacing:0.12em;">
-      [ under construction ]
-    </p>
-    <p style="font-family:'Space Mono',monospace;font-size:0.6rem;color:#ccc;margin-top:0.75rem;letter-spacing:0.08em;">
-      thoughts incoming
-    </p>
+    <div class="blog-wrap sr visible">
+
+      {sections.map(section => (
+        <div class="blog-section">
+          <div class="blog-posts">
+            {section.posts.map(post => (
+              post.ghost ? (
+                <div class="blog-post blog-post-ghost">
+                  <div class="blog-post-row">
+                    <span class="blog-post-title">[ untitled ]</span>
+                    <span class="blog-post-date">coming soon</span>
+                  </div>
+                  <p class="blog-post-desc">thoughts incoming</p>
+                </div>
+              ) : (
+                <div class="blog-post">
+                  <div class="blog-post-row">
+                    <span class="blog-post-title">{post.title}</span>
+                    <span class="blog-post-date">{post.date}</span>
+                  </div>
+                  {post.desc && <p class="blog-post-desc">{post.desc}</p>}
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      ))}
+
+    </div>
   </main>
 </Layout>
+
+<style>
+  .blog-wrap {
+    max-width: 580px;
+    width: calc(100% - 3rem);
+  }
+
+  .blog-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-posts {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .blog-post {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-post-ghost {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .blog-post-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .blog-post-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text);
+  }
+
+  .blog-post-date {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .blog-post-desc {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-muted);
+    margin: 0.3rem 0 0;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    .blog-post-row { flex-direction: column; gap: 0.2rem; }
+  }
+</style>

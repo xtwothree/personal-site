@@ -20,31 +20,43 @@ import Layout from '../layouts/Layout.astro';
             <span class="menu-label">next</span>
             <span class="menu-arrow">→</span>
           </button>
-          <button class="menu-item scene-btn" data-target="edu"  data-label="edu">
-            <span class="menu-label">edu</span>
-            <span class="menu-arrow">→</span>
-          </button>
           <button class="menu-item scene-btn" data-target="life" data-label="life">
             <span class="menu-label">life</span>
+            <span class="menu-arrow">→</span>
+          </button>
+          <button class="menu-item scene-btn" data-target="edu"  data-label="edu">
+            <span class="menu-label">edu</span>
             <span class="menu-arrow">→</span>
           </button>
         </div>
       </div>
 
+      <!-- ── shared detail nav ── -->
+      <div class="detail-nav">
+        <button class="detail-nav-btn scene-btn" data-target="overview">←</button>
+        <span class="detail-nav-sep">·</span>
+        <button class="detail-nav-btn scene-btn" data-target="now">now</button>
+        <span class="detail-nav-sep">·</span>
+        <button class="detail-nav-btn scene-btn" data-target="next">next</button>
+        <span class="detail-nav-sep">·</span>
+        <button class="detail-nav-btn scene-btn" data-target="life">life</button>
+        <span class="detail-nav-sep">·</span>
+        <button class="detail-nav-btn scene-btn" data-target="edu">edu</button>
+      </div>
+
       <!-- ── now ── -->
       <div class="about-scene" data-scene="now">
-        <button class="detail-header scene-btn" data-target="overview">// now</button>
         <div class="detail-rows">
+          <span class="detail-key">co</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val"><a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">apple</a></span>
+
           <span class="detail-key">role</span>
           <span class="detail-sep">──</span>
           <span class="detail-val detail-val-split">
             <span>finance development experience intern</span>
-            <span class="detail-loc">cupertino, ca</span>
+            <span class="detail-loc">cupertino, ca · summer 2026</span>
           </span>
-
-          <span class="detail-key">co</span>
-          <span class="detail-sep">──</span>
-          <span class="detail-val"><a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">apple</a></span>
 
           <span class="detail-key">team</span>
           <span class="detail-sep">──</span>
@@ -53,31 +65,22 @@ import Layout from '../layouts/Layout.astro';
           <span class="detail-key">focus</span>
           <span class="detail-sep">──</span>
           <span class="detail-val">workflow &amp; automation</span>
-
-          <span class="detail-key">when</span>
-          <span class="detail-sep">──</span>
-          <span class="detail-val">summer 2026</span>
         </div>
       </div>
 
       <!-- ── next ── -->
       <div class="about-scene" data-scene="next">
-        <button class="detail-header scene-btn" data-target="overview">// next</button>
         <div class="detail-rows">
-          <span class="detail-key">role</span>
-          <span class="detail-sep">──</span>
-          <span class="detail-val detail-val-split">
-            <span>machine learning engineer intern</span>
-            <span class="detail-loc">austin, tx</span>
-          </span>
-
           <span class="detail-key">co</span>
           <span class="detail-sep">──</span>
           <span class="detail-val"><a href="https://apple.com" target="_blank" rel="noopener noreferrer" class="role-link">apple</a></span>
 
-          <span class="detail-key">when</span>
+          <span class="detail-key">role</span>
           <span class="detail-sep">──</span>
-          <span class="detail-val">summer 2027</span>
+          <span class="detail-val detail-val-split">
+            <span>machine learning engineer intern</span>
+            <span class="detail-loc">austin, tx · summer 2027</span>
+          </span>
 
           <span class="detail-key">note</span>
           <span class="detail-sep">──</span>
@@ -87,15 +90,14 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- ── edu ── -->
       <div class="about-scene" data-scene="edu">
-        <button class="detail-header scene-btn" data-target="overview">// edu</button>
         <div class="detail-rows">
           <span class="detail-key">school</span>
           <span class="detail-sep">──</span>
           <span class="detail-val"><a href="https://www.ucsb.edu" target="_blank" rel="noopener noreferrer" class="role-link">University of California, Santa Barbara</a></span>
 
-          <span class="detail-key">major</span>
+          <span class="detail-key">study</span>
           <span class="detail-sep">──</span>
-          <span class="detail-val">Statistics &amp; Data Science</span>
+          <span class="detail-val">B.S. Statistics &amp; Data Science</span>
 
           <span class="detail-key">focus</span>
           <span class="detail-sep">──</span>
@@ -110,7 +112,6 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- ── life ── -->
       <div class="about-scene" data-scene="life">
-        <button class="detail-header scene-btn" data-target="overview">// life</button>
         <div class="detail-rows">
           <span class="detail-key">sleep</span>
           <span class="detail-sep">──</span>
@@ -126,7 +127,11 @@ import Layout from '../layouts/Layout.astro';
 
           <span class="detail-key">games</span>
           <span class="detail-sep">──</span>
-          <span class="detail-val">Valorant · Stardew Valley · Expedition 33</span>
+          <span class="detail-val">valorant · stardew valley · expedition 33</span>
+
+          <span class="detail-key">music</span>
+          <span class="detail-sep">──</span>
+          <span class="detail-val">baby jane · glokk40spaz · marchpane</span>
         </div>
       </div>
 
@@ -172,6 +177,7 @@ import Layout from '../layouts/Layout.astro';
     if (!card) return;
 
     // ── scene switching ──
+    const detailNav = card.querySelector<HTMLElement>('.detail-nav');
     card.addEventListener('click', (e) => {
       const btn = (e.target as Element).closest<HTMLElement>('.scene-btn');
       if (!btn) return;
@@ -179,8 +185,15 @@ import Layout from '../layouts/Layout.astro';
       if (!target) return;
       if (target !== 'overview') {
         (card as HTMLElement).style.minHeight = card.getBoundingClientRect().height + 'px';
+        if (detailNav) {
+          detailNav.style.display = 'flex';
+          detailNav.querySelectorAll<HTMLElement>('.detail-nav-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.target === target);
+          });
+        }
       } else {
         (card as HTMLElement).style.minHeight = '';
+        if (detailNav) detailNav.style.display = 'none';
       }
       card.querySelectorAll<HTMLElement>('.about-scene').forEach(s => s.classList.remove('active'));
       card.querySelector<HTMLElement>(`[data-scene="${target}"]`)?.classList.add('active');
@@ -212,9 +225,11 @@ import Layout from '../layouts/Layout.astro';
 <style>
   .about-card {
     border: 1px solid var(--color-border);
-    padding: 2.75rem 3.25rem;
-    max-width: 580px;
+    padding: 3.25rem 3.75rem;
+    max-width: 640px;
     width: calc(100% - 3rem);
+    opacity: 0;
+    animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
   }
 
   /* ── scenes ── */
@@ -273,21 +288,32 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-text);
   }
 
-  /* ── detail ── */
-  .detail-header {
+  /* ── detail nav ── */
+  .detail-nav {
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0;
+  }
+  .detail-nav-btn {
     font-family: var(--font-mono);
     font-size: 0.62rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--color-muted);
-    margin: 0;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    text-align: left;
     transition: color 0.15s ease;
   }
-  .detail-header:hover { color: var(--color-text); }
+  .detail-nav-btn:hover,
+  .detail-nav-btn.active { color: var(--color-text); }
+  .detail-nav-sep {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-border);
+    pointer-events: none;
+  }
   .detail-rows {
     display: grid;
     grid-template-columns: 3.4rem 1.4rem 1fr;

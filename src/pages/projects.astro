@@ -1,33 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    label: 'projects',
+    items: [
+      {
+        slug: 'personal-site',
+        name: 'personal site',
+        desc: 'minimal portfolio with glitch ui and interactive scene cards',
+        tech: 'astro · tailwind · typescript',
+        year: 'May 2026',
+        ghost: false,
+      },
+      {
+        name: 'untitled',
+        desc: null,
+        tech: null,
+        year: null,
+        ghost: true,
+      },
+    ],
+  },
+];
 ---
 
 <Layout title="projects — Alejandro Franco">
-  <main class="flex-1 flex flex-col items-center pt-12 pb-20">
+  <main class="flex-1 flex flex-col items-center justify-center pb-20">
     <div class="projects-wrap sr visible">
 
-      <p class="projects-heading">// projects</p>
-
-      <div class="project-list">
-
-        <a href="https://github.com/xtwothree/personal-site" target="_blank" rel="noopener noreferrer" class="project-item">
-          <span class="project-num">01</span>
-          <div class="project-body">
-            <p class="project-name">personal site</p>
-            <p class="project-sub">minimal portfolio with glitch ui &amp; scene cards · 2025</p>
-            <p class="project-tech">astro · tailwind · typescript</p>
-          </div>
-        </a>
-
-        <div class="project-item project-ghost">
-          <span class="project-num">02</span>
-          <div class="project-body">
-            <p class="project-name">more soon</p>
-            <p class="project-sub">—</p>
+      {sections.map(section => (
+        <div class="projects-section">
+          <div class="projects-list">
+            {section.items.map(p => (
+              p.ghost ? (
+                <div class="project-entry project-entry-ghost">
+                  <div class="project-row">
+                    <span class="project-name">[ untitled ]</span>
+                    <span class="project-year">coming soon</span>
+                  </div>
+                  <p class="project-desc">something's brewing</p>
+                </div>
+              ) : (
+                <a href={`/projects/${p.slug}`} class="project-entry project-entry-link">
+                  <div class="project-row">
+                    <span class="project-name">{p.name}</span>
+                    <span class="project-year">{p.year}</span>
+                  </div>
+                  <p class="project-tech">{p.tech}</p>
+                  {p.desc && <p class="project-desc">{p.desc}</p>}
+                </a>
+              )
+            ))}
           </div>
         </div>
-
-      </div>
+      ))}
 
     </div>
   </main>
@@ -35,72 +62,72 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .projects-wrap {
-    width: 100%;
     max-width: 580px;
-    padding: 0 1.5rem;
+    width: calc(100% - 3rem);
   }
-  .projects-heading {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    color: var(--color-muted);
-    margin: 0 0 1.75rem;
+
+  .projects-section {
+    margin-bottom: 2.5rem;
   }
-  .project-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .project-item {
-    display: grid;
-    grid-template-columns: 3.25rem 1fr;
-    align-items: start;
-    padding: 1.4rem 0;
+
+  .projects-list {
     border-top: 1px solid var(--color-border);
+  }
+
+  .project-entry {
+    display: block;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-border);
     text-decoration: none;
+  }
+
+  .project-entry-link {
     transition: opacity 0.15s ease;
   }
-  .project-item:last-child { border-bottom: 1px solid var(--color-border); }
-  a.project-item:hover { opacity: 0.65; }
-  .project-ghost { cursor: default; }
+  .project-entry-link:hover { opacity: 0.7; }
 
-  .project-num {
-    font-family: var(--font-mono);
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--color-muted);
-    line-height: 1;
-    padding-top: 0.1rem;
-    opacity: 0.5;
+  .project-entry-ghost {
+    opacity: 0.35;
   }
-  .project-body {
+
+  .project-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
   }
+
   .project-name {
     font-family: var(--font-mono);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     color: var(--color-text);
-    margin: 0;
   }
-  .project-ghost .project-name { color: var(--color-muted); opacity: 0.5; }
-  .project-sub {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--color-muted);
-    margin: 0;
-    line-height: 1.5;
-  }
-  .project-tech {
+
+  .project-year {
     font-family: var(--font-mono);
     font-size: 0.62rem;
     color: var(--color-muted);
-    opacity: 0.55;
-    margin: 0.1rem 0 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .project-tech {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-muted);
+    margin: 0.3rem 0 0;
+    opacity: 0.7;
+  }
+
+  .project-desc {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-muted);
+    margin: 0.2rem 0 0;
+    opacity: 0.7;
   }
 
   @media (max-width: 480px) {
-    .projects-wrap { padding: 0 1.25rem; }
-    .project-num { font-size: 1.1rem; }
+    .project-row { flex-direction: column; gap: 0.2rem; }
   }
 </style>
